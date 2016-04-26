@@ -53,8 +53,7 @@ namespace KeyBoard {
 
 		public Key GetKey(string keyName) {
 			keyName = keyName.ToUpper ();
-			if (keyName == " ")
-				keyName = "Space";
+
 			for (int i = 0; i < keys.Length; i++) {
 				if (keys [i].KeyName == keyName)
 					return keys [i];					

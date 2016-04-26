@@ -106,7 +106,9 @@ namespace KeyBoard {
 				transform.localPosition = positions [layout];
 			}
 
-			if (keyCode != KeyCode.None)
+			if (keyCode == KeyCode.Space)
+				_keyName = " ";
+			else if (keyCode != KeyCode.None)
 				_keyName = keyCode.ToString ();
 			else
 				_keyName = "";

@@ -1035,6 +1035,7 @@ Transform:
   m_Children:
   - {fileID: 1076096186}
   - {fileID: 1234495970}
+  - {fileID: 1009961783}
   m_Father: {fileID: 788602405}
   m_RootOrder: 0
 --- !u!1 &788602403
@@ -1065,7 +1066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 469006693}
-  entrySegment: {fileID: 1076096187}
+  entrySegment: {fileID: 1009961782}
   maxMissPerKey: 6
 --- !u!4 &788602405
 Transform:
@@ -1388,6 +1389,52 @@ MonoBehaviour:
   layouts: 3c000000
   positions:
   - {x: 7.3, y: -1, z: 0}
+--- !u!1 &1009961781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1009961783}
+  - 114: {fileID: 1009961782}
+  m_Layer: 0
+  m_Name: 'Ep 1, Part 3: Fork'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1009961782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009961781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36f6981aace11c478a07bb1e24f0e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 469006693}
+  nextSegment:
+  - {fileID: 1234495971}
+  - {fileID: 1076096187}
+  options:
+  - Testing a thing
+  - Testing more
+--- !u!4 &1009961783
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009961781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 762062732}
+  m_RootOrder: 2
 --- !u!1 &1076096185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,7 +1517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 469006693}
-  nextSegment: {fileID: 0}
+  nextSegment: {fileID: 1009961782}
   text: I am $ here
   options:
   - scared
