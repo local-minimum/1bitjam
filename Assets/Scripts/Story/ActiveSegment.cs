@@ -16,9 +16,10 @@ public class ActiveSegment : MonoBehaviour {
 	[SerializeField] KeyBoard.Board board;
 	[SerializeField] StorySegment entrySegment;
 	[SerializeField, Range(-1, 10)] int maxMissPerKey;
+	[SerializeField] ChoiceBank bank;
 
 	int currentMisses = 0;
-
+	int currentEpisode = 1;
 	StorySegment segment;
 
 	void Update() {
@@ -49,11 +50,14 @@ public class ActiveSegment : MonoBehaviour {
 
 	void Seg_OnChoice (string name, string value)
 	{
+		bank.RegisterChoice (currentEpisode, name, value);
 		Debug.Log(string.Format("Chose {0} = {1}", name, value));
 	}
 
 	void Seg_OnNextEpisode ()
 	{
+		bank.OpenEpisodePage (currentEpisode);
+		currentEpisode++;
 		//TODO: get next episode;
 	}
 
