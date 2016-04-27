@@ -7,6 +7,7 @@ public class StorySegmentChoice : StorySegment {
 	[SerializeField] string text;
 	int pos = -1;
 	[SerializeField] string[] options;
+	[SerializeField] string[] choices;
 	List<string> activeOptions = new List<string> ();
 	int optionPos = -1;
 	int chosenOption = -1;
@@ -23,7 +24,7 @@ public class StorySegmentChoice : StorySegment {
 			return true;
 		} else {
 			if (chosenOption != -1)
-				ReportChoice (optionName, options [chosenOption]);
+				ReportChoice (optionName, choices [chosenOption]);
 			Progress (nextSegment);
 			return false;
 		}

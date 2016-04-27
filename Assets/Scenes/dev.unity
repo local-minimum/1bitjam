@@ -1018,7 +1018,7 @@ GameObject:
   - 4: {fileID: 704922939}
   - 114: {fileID: 704922938}
   m_Layer: 0
-  m_Name: 'Ep 1, Part 4: React'
+  m_Name: 'Ep 1, Part 4: Irritability'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1032,21 +1032,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 704922937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b57070c21e7fe84289f346ee575de63, type: 3}
+  m_Script: {fileID: 11500000, guid: 031126adeed5d31418c581ccfa4ef856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board: {fileID: 0}
-  nextSegment:
-  - {fileID: 0}
-  - {fileID: 0}
-  reactions:
-  - you must help me now
-  - i would kill a lake for a glas of water
-  reactionKeyName: feeling
+  board: {fileID: 469006693}
+  nextSegment: {fileID: 2098574954}
+  text: but Ive been signalling $
+  options:
+  - for so long that the carpal syndrome in my right arm became my best friend
+  - on this no good machine day in and out
   choices:
-  - scared
-  - thirsty
-  defaultReaction: 0
+  - ironic
+  - annoyed
+  optionName: irritability
 --- !u!4 &704922939
 Transform:
   m_ObjectHideFlags: 0
@@ -1069,7 +1067,7 @@ GameObject:
   - 4: {fileID: 762062732}
   - 114: {fileID: 762062733}
   m_Layer: 0
-  m_Name: 'Episode 1: Noise to signal'
+  m_Name: 'Episode 1: Ask'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1089,6 +1087,7 @@ Transform:
   - {fileID: 1234495970}
   - {fileID: 1009961783}
   - {fileID: 704922939}
+  - {fileID: 2098574955}
   m_Father: {fileID: 788602405}
   m_RootOrder: 0
 --- !u!114 &762062733
@@ -1480,7 +1479,7 @@ GameObject:
   - 4: {fileID: 1009961783}
   - 114: {fileID: 1009961782}
   m_Layer: 0
-  m_Name: 'Ep 1, Part 3: Fork'
+  m_Name: 'Ep 1, Part 3: History'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1494,20 +1493,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1009961781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36f6981aace11c478a07bb1e24f0e04, type: 3}
+  m_Script: {fileID: 11500000, guid: 951defa3ce8507747842808b8c9aa0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 469006693}
-  nextSegment:
-  - {fileID: 1234495971}
-  - {fileID: 1076096187}
-  options:
-  - Testing a thing
-  - Testing more
-  forkChoiceName: 
-  choices:
-  - 
-  - 
+  nextSegment: {fileID: 704922938}
+  text: i dont expect you to grasp this
 --- !u!4 &1009961783
 Transform:
   m_ObjectHideFlags: 0
@@ -1572,7 +1563,7 @@ GameObject:
   - 4: {fileID: 1234495970}
   - 114: {fileID: 1234495971}
   m_Layer: 0
-  m_Name: 'Ep 1, Part 2: Sentiment'
+  m_Name: 'Ep 1, Part 2: Contact with inferior?'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1602,12 +1593,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 469006693}
-  nextSegment: {fileID: 704922938}
-  text: I am $ here
+  nextSegment: {fileID: 1009961782}
+  text: $
   options:
-  - scared
-  - thirsty
-  optionName: feeling
+  - listen and listen good
+  - hear my words
+  - excuse me
+  choices:
+  - mega superior
+  - superior
+  - equal
+  optionName: superiority
 --- !u!1 &1266580939
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,6 +2288,57 @@ MonoBehaviour:
   layouts: 76000000
   positions:
   - {x: 3.3, y: -1, z: 0}
+--- !u!1 &2098574953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2098574955}
+  - 114: {fileID: 2098574954}
+  m_Layer: 0
+  m_Name: 'Ep 1, Part 5: Timely'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2098574954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098574953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b57070c21e7fe84289f346ee575de63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 469006693}
+  nextSegment:
+  - {fileID: 0}
+  - {fileID: 0}
+  reactions:
+  - So it is mighty fine that you finally show up
+  - If you had waited another second either this ting or I would be dead
+  reactionKeyName: irritability
+  choices:
+  - ironic
+  - annoyed
+  defaultReaction: 0
+--- !u!4 &2098574955
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098574953}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 762062732}
+  m_RootOrder: 4
 --- !u!1 &2145716494
 GameObject:
   m_ObjectHideFlags: 0
