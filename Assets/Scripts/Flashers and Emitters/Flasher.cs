@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+public delegate void ToggleState(bool isOn);
+
 public class Flasher : MonoBehaviour {
+
+	public event ToggleState OnToggleState;
 
 	[SerializeField, Range(0, 1)] float registerDuration;
 
@@ -32,10 +36,14 @@ public class Flasher : MonoBehaviour {
 		
 	IEnumerator<WaitForSeconds> Sequencer() {
 		_running = true;
+		bool prevSequence = false;
 		while (_running) {
 			if (!_updating) {
 				if (sequence.Length == 0) {
-					img.enabled = false;
+					prevSequence = false;
+					if (OnToggleState != null)
+						OnToggleState (prevSequence);
+					img.enabled = prevSequence;
 				} else {
 					register++;
 					if (queuedSequence != null && register >= sequence.Length) {
@@ -45,6 +53,11 @@ public class Flasher : MonoBehaviour {
 					}
 					register %= sequence.Length;
 					img.enabled = sequence [register];
+					if (sequence [register] != prevSequence) {
+						prevSequence = sequence [register];
+						if (OnToggleState != null)
+							OnToggleState (prevSequence);
+					}
 				}			
 				yield return new WaitForSeconds (registerDuration);
 			}

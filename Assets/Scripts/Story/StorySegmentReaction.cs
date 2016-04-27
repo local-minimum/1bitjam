@@ -33,6 +33,8 @@ public class StorySegmentReaction : StorySegment {
 		} else {
 	
 			var choice = System.Array.IndexOf (reactions, activeReaction);
+
+			pos = -1;
 			Progress (nextSegment [choice]);
 			return false;
 		}

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class ChoiceBank : MonoBehaviour {
 
 	[SerializeField] string baseUrl;
-
+	[SerializeField] string[] episodeUrls;
 	Dictionary<string, string> bank = new Dictionary<string, string>();
 	Dictionary<string, int> transactions = new Dictionary<string, int>();
 
@@ -46,15 +46,16 @@ public class ChoiceBank : MonoBehaviour {
 
 		foreach (var key in transactions.Keys) {
 			if (transactions[key] == episode) {
-				choices.Add(string.Join("=", new string[] {key, bank[key]}));
+				choices.Add(string.Join("=", new string[] {key , WWW.EscapeURL(bank[key])}));
 			}
 		}
 
 		var geturl = string.Join ("&", choices.ToArray());
-		return string.Join ("?", new string[] {baseUrl, geturl });
+		return string.Join ("?", new string[] {baseUrl + episodeUrls[episode], geturl });
 	}
 
 	public void OpenEpisodePage(int episode) {
+		Debug.Log ("Showing choices for episode " + episode);
 		Application.OpenURL (GetDisplayChoicesURL (episode));
 	}
 }

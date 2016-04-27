@@ -52,10 +52,14 @@ public abstract class StorySegment : MonoBehaviour {
 	protected void Progress(StorySegment nextSegment) {
 		targetKeys = null;
 		if (nextSegment == null) {
+			Debug.Log ("Requesting next episode");
 			if (OnNextEpisode != null)
 				OnNextEpisode ();
-		} else if (OnNextSegment != null)
-			OnNextSegment (nextSegment);
+		} else {
+			Debug.Log ("Requesting next segment: " + nextSegment);
+			if (OnNextSegment != null)
+				OnNextSegment (nextSegment);
+		}
 	}
 
 	protected void ReportChoice(string name, string value) {

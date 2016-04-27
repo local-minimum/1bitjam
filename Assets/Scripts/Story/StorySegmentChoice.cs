@@ -25,6 +25,7 @@ public class StorySegmentChoice : StorySegment {
 		} else {
 			if (chosenOption != -1)
 				ReportChoice (optionName, choices [chosenOption]);
+			pos = -1;
 			Progress (nextSegment);
 			return false;
 		}
