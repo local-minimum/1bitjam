@@ -1661,6 +1661,7 @@ GameObject:
   - 114: {fileID: 1267596206}
   - 114: {fileID: 1267596209}
   - 114: {fileID: 1267596210}
+  - 114: {fileID: 1267596211}
   m_Layer: 5
   m_Name: Flasher
   m_TagString: Untagged
@@ -1762,6 +1763,29 @@ MonoBehaviour:
   ResetSegment: 010101000100010001010100010001000101010001000100
   MenuSequence: 010101010101000101010101000101010100010101000000
   EndSequence: 0101010100000101000001010101000001010000010100000101010100010001000100010001010101000001010000010101010001000100010001000101010100000101000001010101000001010000
+--- !u!114 &1267596211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1267596204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c046b0556905541a3cd6e26e56e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - serializedVersion: 2
+    rgba: 4294967295
+  - serializedVersion: 2
+    rgba: 4289572269
+  - serializedVersion: 2
+    rgba: 4292393248
+  - serializedVersion: 2
+    rgba: 4283553388
+  - serializedVersion: 2
+    rgba: 4279478352
+  keys: 3100000032000000330000003400000035000000
 --- !u!1 &1268569352
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,6 +2150,7 @@ GameObject:
   - 92: {fileID: 1981677323}
   - 124: {fileID: 1981677322}
   - 81: {fileID: 1981677321}
+  - 114: {fileID: 1981677326}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2200,6 +2225,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1981677326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1981677320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d22d348e70dc9243b4543516663fa94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - serializedVersion: 2
+    rgba: 4278190080
+  - serializedVersion: 2
+    rgba: 4285164138
+  - serializedVersion: 2
+    rgba: 4281611454
+  - serializedVersion: 2
+    rgba: 4291302345
+  - serializedVersion: 2
+    rgba: 4279742454
+  keys: 3600000037000000380000003900000030000000
 --- !u!1 &1986524580
 GameObject:
   m_ObjectHideFlags: 0
