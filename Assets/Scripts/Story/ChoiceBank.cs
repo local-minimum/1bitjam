@@ -8,9 +8,30 @@ public class ChoiceBank : MonoBehaviour {
 	Dictionary<string, string> bank = new Dictionary<string, string>();
 	Dictionary<string, int> transactions = new Dictionary<string, int>();
 
+	static ChoiceBank _instance;
+
+	public static string GetChoiceMade(string key) {
+		if (_instance)
+			return _instance.GetChoice(key);
+		return "";
+	}
+
+	void Start() {
+		_instance = this;
+	}
+
+	void OnDestroy() {
+		_instance = null;
+	}
+
 	public void RegisterChoice(int episode, string key, string value) {
 		transactions [key] = episode;
 		bank [key] = value;
+	}
+
+	public void Wipe() {
+		bank.Clear ();
+		transactions.Clear ();
 	}
 
 	public string GetChoice(string key) {

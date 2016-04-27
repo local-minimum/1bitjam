@@ -3,8 +3,11 @@ using System.Collections;
 
 public delegate void FoundKey();
 public delegate void CompletedSegment();
+public delegate void CompletedEpisode();
+public delegate void CompletedGame();
 public delegate void Miss(float distance);
 public delegate void RestartSegment();
+public delegate void EpisodeStarted();
 
 public class ActiveSegment : MonoBehaviour {
 
@@ -12,20 +15,26 @@ public class ActiveSegment : MonoBehaviour {
 	public event CompletedSegment OnCompletedSegment;
 	public event Miss OnMiss;
 	public event RestartSegment OnRestartSegment;
+	public event CompletedEpisode OnCompletedEpisode;
+	public event EpisodeStarted OnEpisodeStarted;
+	public event CompletedGame OnCompletedGame;
 
 	[SerializeField] KeyBoard.Board board;
-	[SerializeField] StorySegment entrySegment;
+	[SerializeField] Episode[] episodes;
 	[SerializeField, Range(-1, 10)] int maxMissPerKey;
 	[SerializeField] ChoiceBank bank;
 
 	int currentMisses = 0;
-	int currentEpisode = 1;
+	Episode currentEpisode;
 	StorySegment segment;
 
 	void Update() {
 		if (segment == null) {
-			segment = entrySegment;
-			segment.Step ("");
+			if (currentEpisode == null)
+				currentEpisode = episodes [0];
+			segment = currentEpisode.entrySegment;
+			if (OnCompletedEpisode != null)
+				OnCompletedEpisode ();
 		}
 	}
 
@@ -50,15 +59,26 @@ public class ActiveSegment : MonoBehaviour {
 
 	void Seg_OnChoice (string name, string value)
 	{
-		bank.RegisterChoice (currentEpisode, name, value);
+		bank.RegisterChoice (currentEpisode.index, name, value);
 		Debug.Log(string.Format("Chose {0} = {1}", name, value));
 	}
 
 	void Seg_OnNextEpisode ()
 	{
-		bank.OpenEpisodePage (currentEpisode);
-		currentEpisode++;
-		//TODO: get next episode;
+		bank.OpenEpisodePage (currentEpisode.index);
+		if (currentEpisode.index + 1 < episodes.Length) {
+			if (OnCompletedEpisode != null)
+				OnCompletedEpisode ();
+			currentEpisode = episodes [currentEpisode.index + 1];
+			segment = currentEpisode.entrySegment;
+		} else {
+			if (OnCompletedGame != null)
+				OnCompletedGame ();
+			currentEpisode = episodes [0];
+			bank.Wipe ();
+			segment = currentEpisode.entrySegment;
+
+		}
 	}
 
 	void Seg_OnNextSegment (StorySegment next)
@@ -72,10 +92,18 @@ public class ActiveSegment : MonoBehaviour {
 
 	void Board_OnKeyPress (KeyBoard.Key key)
 	{
-		if (segment.IsHit(key)) {			
-			HandleNextPosition (key.KeyName);
+		if (segment.Initiated) {
+			if (segment.IsHit (key)) {			
+				HandleNextPosition (key.KeyName);
+			} else {
+				HandleMiss (key);
+			}
 		} else {
-			HandleMiss (key);
+			if (key.keyCode == KeyCode.Space) {
+				if (OnEpisodeStarted != null)
+					OnEpisodeStarted ();
+				segment.Step ("");
+			}
 		}
 	}
 

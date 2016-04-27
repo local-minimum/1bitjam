@@ -21,6 +21,12 @@ public abstract class StorySegment : MonoBehaviour {
 		}
 	}
 
+	public bool Initiated {
+		get {
+			return targetKeys != null;
+		}
+	}
+
 	public bool IsHit(KeyBoard.Key key) {
 		for (int i = 0; i < targetKeys.Length; i++) {
 			if (targetKeys [i] == key)
@@ -44,6 +50,7 @@ public abstract class StorySegment : MonoBehaviour {
 	}
 
 	protected void Progress(StorySegment nextSegment) {
+		targetKeys = null;
 		if (nextSegment == null) {
 			if (OnNextEpisode != null)
 				OnNextEpisode ();
